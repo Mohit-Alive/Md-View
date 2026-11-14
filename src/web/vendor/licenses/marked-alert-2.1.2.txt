@@ -1,0 +1,5 @@
+MIT License
+
+Copyright (c) Beni Arisandi (https://stilearning.com)
+
+marked-alert-2.1.2 is distributed under the MIT license; see the package on npm for the full text.
