@@ -1,0 +1,18 @@
+#!/bin/sh
+# Writes src/resources.qrc from what's in src/, so a new translation or
+# bundled web file is picked up without editing the list by hand.
+set -eu
+
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+cd "$ROOT/src"
+{
+  echo '<RCC>'
+  echo '    <qresource prefix="/">'
+  echo '        <file alias="Main.qml">Main.qml</file>'
+  find i18n web -type f ! -path 'web/vendor/licenses/*' | LC_ALL=C sort | while read -r f; do
+    echo "        <file alias=\"$f\">$f</file>"
+  done
+  echo '    </qresource>'
+  echo '</RCC>'
+} > resources.qrc.new
+if cmp -s resources.qrc.new resources.qrc 2>/dev/null; then rm resources.qrc.new; else mv resources.qrc.new resources.qrc; fi

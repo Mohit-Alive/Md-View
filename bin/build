@@ -1,0 +1,12 @@
+#!/bin/sh
+set -eu
+
+ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+"$ROOT/bin/resources"
+mkdir -p "$ROOT/build"
+cd "$ROOT/build"
+
+qmake6 "$ROOT/mdview.pro"
+make -j"$(nproc)"
+
+echo "Built $ROOT/build/mdview"
