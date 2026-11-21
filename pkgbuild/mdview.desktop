@@ -1,0 +1,24 @@
+[Desktop Entry]
+Type=Application
+Name=MD View
+GenericName=Markdown Viewer
+GenericName[de]=Markdown-Betrachter
+GenericName[es]=Visor de Markdown
+GenericName[fr]=Visionneuse Markdown
+GenericName[hi]=Markdown व्यूअर
+GenericName[pt]=Visualizador de Markdown
+GenericName[pt_BR]=Visualizador de Markdown
+Comment=Show Markdown files the way GitHub does
+Comment[de]=Zeigt Markdown-Dateien so an wie GitHub
+Comment[es]=Muestra archivos Markdown como lo hace GitHub
+Comment[fr]=Affiche les fichiers Markdown comme GitHub
+Comment[hi]=Markdown फ़ाइलों को GitHub की तरह दिखाता है
+Comment[pt]=Mostra ficheiros Markdown como o GitHub
+Comment[pt_BR]=Mostra arquivos Markdown como o GitHub
+Exec=mdview %f
+Icon=mdview
+Terminal=false
+Categories=Utility;Viewer;TextTools;
+MimeType=text/markdown;text/x-markdown;
+Keywords=markdown;md;readme;viewer;preview;github;
+StartupWMClass=mdview
