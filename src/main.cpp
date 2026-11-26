@@ -20,6 +20,13 @@
 int main(int argc, char *argv[]) {
     // Must run before the application object exists, so the web engine can
     // share its graphics context with Qt Quick.
+    // With Qt Quick's threaded render loop, the window comes back black after
+    // the compositor hides it (switching workspaces) and stays black until
+    // the next input event. The basic loop redraws as soon as it's shown
+    // again, and a document viewer doesn't need a separate render thread.
+    if (!qEnvironmentVariableIsSet("QSG_RENDER_LOOP"))
+        qputenv("QSG_RENDER_LOOP", "basic");
+
     LocalFiles::registerScheme();
     QtWebEngineQuick::initialize();
 
